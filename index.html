@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Despachante Schunck - Documentação Veicular SP</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -35,6 +35,29 @@
       <p>Agilidade, Confiança e Experiência para Resolver seus Documentos</p>
     </div>
 
+    <!-- HTML do Carrossel Automático -->
+    <div class="carousel-container">
+      <div class="carousel-slides">
+        <div class="slide active">
+          <img src="assets/loja1.jpg" alt="Foto 1" />
+        </div>
+        <div class="slide">
+          <img src="assets/loja2.jpg" alt="Foto 2" />
+        </div>
+        <div class="slide">
+          <img src="assets/loja3.jpg" alt="Foto 3" />
+        </div>
+      </div>
+
+      <!-- Indicadores apenas visuais (não clicáveis) -->
+      <div class="carousel-indicators">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
     <!-- Serviços -->
     <section id="servicos">
       <h2>Nossos Serviços</h2>
@@ -44,6 +67,18 @@
           <p>
             Realizamos toda a documentação necessária para transferência de
             propriedade de veículos com rapidez e segurança.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Pague Parcelado</h3>
+          <p>
+            Para sua comodidade, oferecemos opções de pagamento parcelado em até 12x no cartão.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Liberação de Veículo</h3>
+          <p>
+            Liberamos veículos apreendidos ou retidos junto ao Detran-SP de forma ágil e eficiente.
           </p>
         </div>
         <div class="service-card">
@@ -83,8 +118,8 @@
         <div class="about-text">
           <p>
             O <strong>Despachante Schunck</strong> é um escritório especializado
-            em documentação veicular no Estado de São Paulo, com mais de 10 anos de
-            experiência no mercado.
+            em documentação veicular no Estado de São Paulo, com mais de 10 anos
+            de experiência no mercado.
           </p>
           <p>
             Nossa missão é facilitar a vida dos nossos clientes, oferecendo
@@ -106,49 +141,82 @@
       <div class="contact-info">
         <div class="info-card">
           <h3>📞 Telefone</h3>
-          <p>(11) 94230-7192</p>
+          <p><a href="tel:+5511942307192">(11) 94230-7192</a></p>
         </div>
         <div class="info-card">
           <h3>📧 Email</h3>
-          <p>contato@despachanteschunck.com.br</p>
+          <p>
+            <a href="mailto:contato@despachanteschunck.com.br"
+              >contato@despachanteschunck.com.br</a
+            >
+          </p>
         </div>
         <div class="info-card">
-          <h3>📍 Endereço</h3>
-          <p><a
-      href="https://maps.app.goo.gl/McJX494Je845Ys416"
-      target="_blank"
-      rel="noopener noreferrer"
-    >R. Paulo Stranbi, 10 - loja 3 - Cipó-Guaçu, Embu-Guaçu - SP, 06929-025 </a></p>
+          <p class="info-loja">Loja 01</p>
+          <p>
+            <a
+              href="https://maps.app.goo.gl/McJX494Je845Ys416"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Rua Paulo Stranbi, n.º10 - Cipó-Guaçu, Embu-Guaçu
+            </a>
+          </p>
+          <p class="info-loja">Loja 02</p>
+          <p>
+            <a
+              href="https://maps.app.goo.gl/McJX494Je845Ys416"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Rua Independência, n.º176 - Centro Embu Guaçu
+            </a>
+          </p>
         </div>
       </div>
 
       <div class="map-container">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.3577606556237!2d-46.79588642466015!3d-23.876929278584278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfb354c2ad7b63%3A0xa9cbd83d11ff9743!2sDespachante%20Schunck%20-%20Unidade%20Cip%C3%B3%20(Loja%2001)!5e0!3m2!1spt-BR!2sus!4v1767851741339!5m2!1spt-BR!2sus"
-    allowfullscreen
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-  ></iframe>
-</div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.3577606556237!2d-46.79588642466015!3d-23.876929278584278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfb354c2ad7b63%3A0xa9cbd83d11ff9743!2sDespachante%20Schunck%20-%20Unidade%20Cip%C3%B3%20(Loja%2001)!5e0!3m2!1spt-BR!2sus!4v1767851741339!5m2!1spt-BR!2sus"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
 
       <div class="contact-form">
         <h3 class="form-title">Envie sua Mensagem</h3>
         <form action="https://formspree.io/f/mnjnegyw" method="POST">
           <div class="form-group">
             <label for="nome">Nome Completo *</label>
-            <input type="text" id="nome" name="nome" required  />
+            <input type="text" id="nome" name="nome" required />
           </div>
           <div class="form-group">
             <label for="endereco">Endereço</label>
-            <input type="text" id="endereco" name="endereco" placeholder="ex: Rua Juriti, 42 - cipó CEP 06900-000"/>
+            <input
+              type="text"
+              id="endereco"
+              name="endereco"
+              placeholder="ex: Rua Juriti, 42 - cipó CEP 06900-000"
+            />
           </div>
           <div class="form-group">
             <label for="telefone">Telefone *</label>
-            <input type="tel" id="telefone" name="telefone" required placeholder="ex: 11 912345678"/>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              required
+              placeholder="ex: 11 912345678"
+            />
           </div>
           <div class="form-group">
             <label for="email">Email *</label>
-            <input type="email" id="email" name="email" required autocomplete="email"/>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
           </div>
           <div class="form-group">
             <label for="renavam">RENAVAM</label>
@@ -156,11 +224,20 @@
           </div>
           <div class="form-group">
             <label for="placa">Placa do Veículo</label>
-            <input type="text" id="placa" name="placa" placeholder="ex: BRA2026"/>
+            <input
+              type="text"
+              id="placa"
+              name="placa"
+              placeholder="ex: BRA2026"
+            />
           </div>
           <div class="form-group">
             <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" placeholder="Informe os serviços desejados e dúvidas."></textarea>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              placeholder="Informe os serviços desejados e dúvidas."
+            ></textarea>
           </div>
           <button type="submit" class="submit-btn">Enviar Mensagem</button>
         </form>
