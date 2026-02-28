@@ -586,8 +586,11 @@ footer {
   text-align: center;
 }
 
-footer img {
-  width: 450px;
+
+footer > img {
+  max-width: 350px;       /* Tamanho máximo do logo no desktop */
+  height: auto;
+  margin-bottom: 15px;    /* Espaço extra abaixo do logo */
 }
 
 .social-links {
@@ -790,4 +793,13 @@ footer img {
   .logos-track img {
     height: 28px;
   }
+
+  footer {
+    flex-direction: column;
+  }
+
+  footer > img {
+    max-width: 250px;
+  }
 }
+
