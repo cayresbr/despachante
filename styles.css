@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 :root {
@@ -9,12 +10,8 @@
   --secondary-blue: #2196f3;
   --dark-gray: #4d4d4d;
   --light-gray: #eeeeee;
-  --white: #ffffff;
+  --white: #f0f8ff;
   --gradient-blue: linear-gradient(135deg, #2196f3 0%, #7eceff 100%);
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -126,27 +123,95 @@ header.scrolled .logo img {
 
 /* Hero Section */
 .hero {
-  background: var(--gradient-blue);
+  background-image:
+    linear-gradient(to right, #1670a7 30%, rgba(255, 255, 255, 0) 80%),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 40%
+    ),
+    url(assets/hero-image.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
   color: var(--white);
+  padding: clamp(60px, 15vh, 150px) 5%;
   min-height: 90dvh;
-  padding: 120px 5% 60px;
-  text-align: center;
+  text-align: left;
   margin-top: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .hero h1 {
-  font-size: 2.5em;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 10px;
 }
 
 .hero p {
+  width: 650px;
+  line-height: 60px;
   font-size: 1.3em;
   margin-bottom: 30px;
   animation: fadeInUp 1.2s ease;
+}
+
+/* ===== FAIXA DE LOGOS ===== */
+.logos-strip {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--white);
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.logos-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  animation: scroll-logos 20s linear infinite;
+  will-change: transform;
+}
+
+.logos-track img {
+  height: 40px;
+  flex-shrink: 0;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.logos-track img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@keyframes scroll-logos {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.logos-strip:hover .logos-track {
+  animation-play-state: paused;
 }
 
 /* CSS do Carrossel Automático */
@@ -439,8 +504,8 @@ footer {
 /* Botões Flutuantes */
 .floating-btn {
   position: fixed;
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -456,14 +521,14 @@ footer {
 }
 
 .whatsapp-btn {
-  bottom: 30px;
-  right: 30px;
+  bottom: 35px;
+  right: 35px;
   background: #20d142;
 }
 
 .whatsapp-btn img {
-  width: 35px;
-  height: 35px;
+  width: 74px;
+  height: 74px;
 }
 
 .scroll-top-btn {
@@ -480,10 +545,11 @@ footer {
 }
 
 .scroll-top-btn::before {
-  content: "↑";
+  content: url(assets/uparrow.png);
   color: var(--white);
-  font-size: 30px;
-  font-weight: bold;
+  padding-bottom: 10px;
+  display: block;
+  transform: scale(0.03);
 }
 
 /* Animações */
@@ -521,16 +587,43 @@ footer {
     display: flex;
   }
 
+  .hero {
+    padding: 80px 20px; /* Mais respiro lateral em telas pequenas */
+    text-align: center; /* Opcional: centralizar no mobile costuma converter melhor */
+    align-items: center;
+    background-image:
+      linear-gradient(
+        to bottom,
+        var(--secondary-blue) 2%,
+        rgba(255, 255, 255, 0.6) 100%
+      ),
+      linear-gradient(
+        to top,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 40%
+      ),
+      url("assets/hero-image.jpg");
+    background-position: center; /* Centraliza a imagem no mobile */
+  }
+
   .hero h1 {
     font-size: 2em;
   }
 
   .hero p {
+    max-width: 100%;
     font-size: 1.1em;
+    line-height: 45px;
+    font-weight: 400;
+    color: var(--dark-gray);
   }
 
   h2 {
     font-size: 2em;
+  }
+
+  .carousel-container {
+    margin: 0 5px;
   }
 
   .slide img {
@@ -558,5 +651,14 @@ footer {
   .scroll-top-btn {
     bottom: 90px;
     right: 20px;
+  }
+
+  .logos-track {
+    gap: 40px;
+    animation-duration: 15s;
+  }
+
+  .logos-track img {
+    height: 28px;
   }
 }
