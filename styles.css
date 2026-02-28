@@ -146,16 +146,107 @@ header.scrolled .logo img {
 }
 
 .hero h1 {
+  max-width: 700px;
+  font-family: "Exo 2", sans-serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 70px;
   margin-bottom: 10px;
+  text-align: left;
 }
 
 .hero p {
-  width: 650px;
+  max-width: 700px;
   line-height: 60px;
   font-size: 1.3em;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   animation: fadeInUp 1.2s ease;
+}
+
+.hero-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 30px;
+  border: 2px solid var(--white); /* Borda branca fina igual da imagem */
+  border-radius: 50px; /* Formato pílula */
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  background: transparent;
+  margin-top: 20px;
+}
+
+.hero-whatsapp-btn .wa-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.hero-whatsapp-btn:hover {
+  background-color: var(--white);
+  color: var(--primary-blue); /* Inverte as cores no hover */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-whatsapp-btn:hover .wa-icon {
+  filter: none;
+}
+
+/* Container da seta */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px; /* Distância do fundo do hero */
+  left: 50%;
+  transform: translateX(-50%);
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.scroll-indicator.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* As duas linhas da seta */
+.scroll-indicator span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 3px solid var(--white);
+  border-right: 3px solid var(--white);
+  transform: rotate(45deg);
+  margin: -10px; /* Sobrepõe levemente para formar o desenho da imagem */
+  animation: scroll-down 2s infinite;
+}
+
+/* Atraso para a segunda linha criar o efeito de "onda" */
+.scroll-indicator span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+/* Animação de descer e sumir (fade) */
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
 }
 
 /* ===== FAIXA DE LOGOS ===== */
@@ -197,7 +288,9 @@ header.scrolled .logo img {
   object-fit: contain;
   filter: grayscale(100%);
   opacity: 0.6;
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .logos-track img:hover {
@@ -206,8 +299,12 @@ header.scrolled .logo img {
 }
 
 @keyframes scroll-logos {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .logos-strip:hover .logos-track {
@@ -298,8 +395,10 @@ section:nth-child(even) {
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
 }
 
-h2 {
+h2,
+h3 {
   color: var(--primary-blue);
+  font-family: "exo 2", sans-serif;
   font-size: 2.5em;
   margin-bottom: 40px;
   text-align: center;
@@ -364,6 +463,14 @@ h2 {
   margin-bottom: 50px;
 }
 
+.contact-info h3 {
+  font-size: 1.2rem;
+}
+
+.contact-info span {
+  font-weight: 800;
+}
+
 .info-card {
   background: var(--white);
   padding: 15px;
@@ -415,7 +522,7 @@ h2 {
 
 .form-title {
   color: var(--primary-blue);
-  font-size: 1.8em;
+
   margin-bottom: 30px;
   text-align: center;
 }
@@ -479,6 +586,10 @@ footer {
   text-align: center;
 }
 
+footer img {
+  width: 450px;
+}
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -496,8 +607,8 @@ footer {
 }
 
 .social-links img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 
@@ -521,9 +632,17 @@ footer {
 }
 
 .whatsapp-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s ease;
   bottom: 35px;
   right: 35px;
   background: #20d142;
+}
+
+.whatsapp-btn.visible {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .whatsapp-btn img {
@@ -588,7 +707,7 @@ footer {
   }
 
   .hero {
-    padding: 80px 20px; /* Mais respiro lateral em telas pequenas */
+    padding: 50px 20px; /* Mais respiro lateral em telas pequenas */
     text-align: center; /* Opcional: centralizar no mobile costuma converter melhor */
     align-items: center;
     background-image:
@@ -607,19 +726,24 @@ footer {
   }
 
   .hero h1 {
-    font-size: 2em;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 50px;
+    text-transform: uppercase;
   }
 
   .hero p {
+    text-align: left;
     max-width: 100%;
-    font-size: 1.1em;
-    line-height: 45px;
-    font-weight: 400;
+    font-size: 1.3em;
+    line-height: 40px;
+    font-weight: 600;
     color: var(--dark-gray);
   }
 
-  h2 {
-    font-size: 2em;
+  .scroll-indicator span {
+    border-bottom: 3px solid var(--dark-gray);
+    border-right: 3px solid var(--dark-gray);
   }
 
   .carousel-container {
@@ -641,6 +765,11 @@ footer {
   .floating-btn {
     width: 50px;
     height: 50px;
+  }
+
+  .hero-whatsapp-btn {
+    border: 2px solid var(--secondary-blue);
+    color: var(--secondary-blue);
   }
 
   .whatsapp-btn {

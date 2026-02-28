@@ -42,11 +42,14 @@ revealSection();
 
 // Scroll to Top Button
 const scrollTopBtn = document.getElementById("scrollTopBtn");
+const whatsappBtn = document.querySelector(".whatsapp-btn");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
     scrollTopBtn.classList.add("visible");
+    whatsappBtn.classList.add("visible");
   } else {
     scrollTopBtn.classList.remove("visible");
+    whatsappBtn.classList.remove("visible");
   }
 });
 
@@ -99,3 +102,13 @@ function autoSlide() {
 
 // Troca de foto a cada 3 segundos (3000ms)
 setInterval(autoSlide, 3000);
+
+window.addEventListener("scroll", function () {
+  const scrollIndicator = document.querySelector(".scroll-indicator");
+
+  if (window.scrollY > 50) {
+    scrollIndicator.classList.add("hidden");
+  } else {
+    scrollIndicator.classList.remove("hidden");
+  }
+});
